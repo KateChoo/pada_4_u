@@ -1,7 +1,9 @@
 import json
+from datetime import timedelta
 from flask import Flask, render_template, request, redirect, session, g
 app = Flask(__name__)
 app.secret_key = 'secretkey'
+app.permanent_session_lifetime = timedelta(minutes=10080)
 web_info = {
     'dir_t': '歡迎光臨，目錄',
     'signin_t': '歡迎光臨，請輸入帳號密碼',
@@ -31,6 +33,7 @@ def home():
 
 @app.route('/signin', methods=['GET', 'POST'])
 def signin():
+    session.permanent = True
     username = request.form['username']
     password = request.form['password']
 
