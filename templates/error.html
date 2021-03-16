@@ -5,10 +5,17 @@
         <link rel="stylesheet" href="/static/stylesheets/pada_3/pada_3.css">
     {% endblock %}
 
-    {% block h1 %}
-        <h1>{{web_info.error_t}}</h1>
-    {% endblock %}  
+    {% if g.username == 'test' %}
+        <h3>恭喜{{g.username}}！成功登入系統</h3>
+        <h3><a href="/signout">登出系統</a></h3>
 
-    {% block signin %}
-        <h3>帳號或密碼輸入錯誤！</h3>
-    {% endblock %}
+    {% else %}
+        {% block h1 %}
+            <h1>{{web_info.error_t}}</h1>
+        {% endblock %}  
+
+        {% block signin %}
+            <h3>帳號或密碼輸入錯誤！</h3>
+            <h3><a href="/">登入系統</a></h3>
+        {% endblock %}
+    {% endif %}
