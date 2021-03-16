@@ -1,0 +1,13 @@
+{% extends 'layout.html' %}
+
+    {% block member_error_head_link%}
+        <link rel="stylesheet" href="/static/stylesheets/pada_0/pada_0.css">
+    {% endblock %}
+
+    {% block h1 %}
+        <h1>{{web_info.error_t}}</h1>
+    {% endblock %}  
+
+    {% block signin %}
+        <h3>帳號或密碼輸入錯誤！</h3>
+    {% endblock %}

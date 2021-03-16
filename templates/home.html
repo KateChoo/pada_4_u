@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+    
+    {% block h1 %}
+        <h1>{{web_info.signin_t}}</h1>
+    {% endblock %}  
+    
+    
+    {% block signin %}
+    <form action="/signin" method="POST">
+            
+      <h3>登入系統</h3>
+      <div>
+          <label for="username">帳號</label>
+          <input name="username" type="text" />
+      </div>
+      <div>
+          <label for="password">密碼</label>
+          <input name="password" type="password" / >  
+      </div>
+      <button>登入</button>
+    </form>
+    {% endblock %}

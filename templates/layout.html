@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pada_app</title>
+    <link rel="stylesheet" href="static/stylesheets/pada_0/pada_0.css">
+    {% block index_head_link%}
+    {% endblock %}
+    {% block pada_1_head_link%}
+    {% endblock %}
+    {% block pada_3_head_link%}
+    {% endblock %}
+    {% block member_error_head_link%}
+    {% endblock %}
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/">首頁</a>
+
+            <ul id='nav'>
+                <span class="s1"></span>
+                <span class="s2"></span>
+                <span class="s3"></span>
+
+                <li class='show'><a>item1</a></li>
+                <li class='show'><a>item2</a></li>
+                <li class='show'><a>item3</a></li>
+                <li class='show'><a>item4</a></li>
+            </ul>
+        </nav>
+        <div>
+            {% block h1%}
+            {% endblock %}
+        </div>
+    </header>
+    <main>
+        {% block index %}
+        {% endblock %}
+        {% block signin %}
+        {% endblock %}
+        {% block member %}
+        {% endblock %}
+        {% block error %}
+        {% endblock %}
+        {% block signout %}
+        {% endblock %}
+        {% block upload %}
+        {% endblock %}
+        {% block taipei_fun %}
+        {% endblock %}
+    </main>
+    <footer>
+        <a href="mailto:twodoor1993@gmail.com?subject=feedback for you">2021 K</a>
+    </footer>
+    
+    <script src="static/js/pada_0.js"> </script>
+    {% block taipei_api_ajax%}
+    {% endblock %}
+    {% block login_js%}
+    {% endblock %}
+</body>
+</html>
