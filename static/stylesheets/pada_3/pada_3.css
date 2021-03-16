@@ -2,8 +2,10 @@
 @import url("../common.css");
 
 header,
-main{
+main,
+h3{
     text-align: center;
+    margin: 0 auto;
 }
 
 label,

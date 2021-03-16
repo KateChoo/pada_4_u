@@ -1,6 +1,7 @@
 import json
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, session, g
 app = Flask(__name__)
+app.secret_key = 'secretkey'
 web_info = {
     'dir_t': '歡迎光臨，目錄',
     'signin_t': '歡迎光臨，請輸入帳號密碼',
@@ -12,6 +13,14 @@ web_info = {
 }
 
 
+@app.before_request
+def before_request():
+    g.username = '您'
+    if 'username' in session:
+        username = session['username']
+        g.username = username
+
+
 @app.route('/', methods=['GET', 'POST'])
 def home():
 
@@ -20,11 +29,14 @@ def home():
                            )
 
 
-@app.route('/signin', methods=['POST'])
+@app.route('/signin', methods=['GET', 'POST'])
 def signin():
-    username = request.form['username']  # , 'test')
-    password = request.form['password']  # , 'test')
+    username = request.form['username']
+    password = request.form['password']
+
+    #session.pop('user_username', None)
     if (username == 'test') and (password == 'test'):
+        session['username'] = username
         return redirect('/member/')
     else:
         return redirect('/error/')
@@ -32,8 +44,11 @@ def signin():
 
 @app.route('/member/', methods=['GET', 'POST'])
 def member():
+    # if 'username' in session:
+    #     username = session['username']
     return render_template('member.html',
-                           web_info=web_info
+                           web_info=web_info,
+                           # username=username
                            )
 
 
@@ -46,7 +61,8 @@ def error():
 
 @app.route('/signout')
 def signout():
-    return render_template('signout.html',
+    session.pop('username', '您')
+    return render_template('home.html',
                            web_info=web_info
                            )
 

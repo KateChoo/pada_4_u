@@ -1,12 +1,14 @@
 {% extends 'layout.html' %}
-    {% block member_error_head_link%}
+    <!-- {% block member_error_head_link%}
         <link rel="stylesheet" href="/static/stylesheets/pada_0/pada_0.css">
-    {% endblock %}
+        <link rel="stylesheet" href="/static/stylesheets/pada_3/pada_3.css">
+    {% endblock %} -->
 
     {% block h1 %}
         <h1>{{web_info.member_t}}</h1>
     {% endblock %}  
 
     {% block signin %}
-        <h3>恭喜您！成功登入系統</h3>
+        <h3>恭喜{{g.username}}！成功登入系統</h3>
+        <h3><a href="/signout">登出系統</a></h3>
     {% endblock %}
