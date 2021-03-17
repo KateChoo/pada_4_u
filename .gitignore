@@ -1,4 +1,3 @@
-note.py
 .DS_Store
 ./templates/signout.html
 ./templates/signin.html

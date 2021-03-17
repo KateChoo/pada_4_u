@@ -38,11 +38,12 @@ def signin():
     password = request.form['password']
 
     #session.pop('user_username', None)
-    if (username == 'test') and (password == 'test'):
-        session['username'] = username
-        return redirect('/member/')
-    else:
-        return redirect('/error/')
+    if request.method == 'POST':
+        if (username == 'test') and (password == 'test'):
+            session['username'] = username
+            return redirect('/member/')
+        else:
+            return redirect('/error/')
 
 
 @app.route('/member/', methods=['GET', 'POST'])
